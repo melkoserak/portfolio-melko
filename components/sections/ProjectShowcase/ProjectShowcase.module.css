@@ -1,0 +1,33 @@
+/* Em: components/sections/ProjectShowcase/ProjectShowcase.module.css */
+
+.showcaseContainer {
+  /* Define a área de scroll */
+  height: 100vh; /* O container ocupa a altura total da tela */
+  width: 100%;
+  overflow-y: scroll; /* Habilita o scroll vertical */
+  
+  /* A mágica do scroll snap */
+  scroll-snap-type: y mandatory; /* Habilita o snap vertical e o torna obrigatório */
+}
+
+.projectSlide {
+  /* Cada slide é um ponto de "encaixe" */
+  scroll-snap-align: start; /* Alinha o início do slide com o início do container */
+  
+  height: 100vh; /* Cada slide ocupa a altura total da tela */
+  width: 100%;
+  
+  /* Centraliza o conteúdo dentro do slide */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* Adiciona um padding para o conteúdo não colar nas bordas */
+  padding: var(--size-gutter);
+}
+
+.cardWrapper {
+  /* Limita a largura do card dentro do slide de tela cheia */
+  max-width: 450px;
+  width: 100%;
+}

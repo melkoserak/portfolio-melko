@@ -1,0 +1,92 @@
+/* Em: styles/pages/Contato.module.css */
+
+.pageContainer {
+  padding-top: 10em;
+  padding-bottom: 5em;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.contentWrapper {
+  max-width: 60ch;
+}
+
+.contentWrapper h1 {
+  font-size: 3em;
+  font-weight: var(--font-weight-black);
+  line-height: 1.2;
+}
+
+.contentWrapper p {
+  font-size: 1.2em;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.emailLink {
+  display: inline-block;
+  font-size: 1.5em;
+  font-weight: var(--font-weight-bold);
+  border-bottom: 2px solid var(--color-accent1);
+  padding-bottom: 0.2em;
+  color: var(--color-fg);
+  transition: all var(--duration-transition) ease;
+}
+
+.emailLink:hover {
+  color: var(--color-accent1);
+  transform: translateY(-2px);
+}
+
+.socialSection {
+  margin-top: 3em;
+  border-top: 1px solid var(--color-border);
+  padding-top: 3em;
+}
+
+.icons {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  gap: 1.5em;
+}
+
+.iconLink {
+  display: inline-block;
+  width: 3em;
+  height: 3em;
+  line-height: 3em;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  border-radius: 50%; /* Círculos para diferenciar do footer */
+  color: inherit;
+  transition: all var(--duration-transition) ease;
+}
+
+.iconLink::before {
+  font-family: 'Font Awesome 5 Brands';
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+
+.iconLink[aria-label="LinkedIn"]::before { content: '\f0e1'; }
+.iconLink[aria-label="Behance"]::before { content: '\f1b4'; }
+
+.iconLink:hover {
+  color: var(--color-accent1);
+  border-color: var(--color-accent1);
+  transform: scale(1.1);
+}
+
+@media (max-width: 736px) {
+  .contentWrapper h1 {
+    font-size: 2.2em;
+  }
+  .emailLink {
+    font-size: 1.2em;
+  }
+}

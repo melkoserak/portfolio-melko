@@ -1,0 +1,27 @@
+.wrapper {
+  opacity: 1;
+  transition: opacity var(--duration-menu) ease;
+}
+
+.wrapper.menuVisible {
+  opacity: 0.25;
+  pointer-events: none;
+  cursor: default;
+}
+
+.main {
+  padding: 0; /* O padding será controlado pelos componentes Hero/etc */
+}
+
+.inner {
+  width: 100%;
+  max-width: var(--size-inner);
+  margin: 0 auto;
+  padding: 0 var(--size-gutter);
+}
+
+@media (max-width: 736px) {
+  .inner {
+    padding: 0 calc(var(--size-gutter) * 0.5);
+  }
+}

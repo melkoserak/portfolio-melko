@@ -1,0 +1,78 @@
+/* Em: styles/globals.css */
+
+/* PARTE 1: NOVA PALETA DE CORES E VARIÁVEIS DE DESIGN */
+:root {
+  /* Nova Paleta (Tema Claro) */
+  --color-bg: #FFFFFF;
+  --color-fg: #111111; /* Texto escuro */
+  --color-fg-muted: #555555;
+  --color-border: #EAEAEA;
+  --color-accent1: #FF4D00; /* Vermelho/Laranja como destaque */
+
+  /* Font */
+  --font-family-body: var(--font-inter);
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Sizes */
+  --size-border-radius: 12px;
+  --size-gutter: 4rem; /* Margem maior */
+  --size-inner: 100%;
+
+  /* Animation */
+  --duration-transition: 0.3s;
+  --duration-menu: 0.45s;
+}
+
+/* PARTE 2: ESTILOS GLOBAIS ATUALIZADOS */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, p, ul, ol, li, figure {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  font-weight: var(--font-weight-black);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 4rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+  margin-bottom: 1.5rem;
+  max-width: 65ch; /* Limita a largura do parágrafo para legibilidade */
+}
+
+a {
+  color: var(--color-accent1);
+  text-decoration: none;
+  transition: opacity var(--duration-transition) ease;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+.page-container {
+  width: 100%;
+  max-width: var(--size-inner);
+  margin: 0 auto;
+  padding: 0 var(--size-gutter);
+}

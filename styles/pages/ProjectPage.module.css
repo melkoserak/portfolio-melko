@@ -1,0 +1,70 @@
+.container {
+  padding-top: 10em;
+  padding-bottom: 5em;
+  display: grid;
+  grid-template-columns: minmax(var(--size-gutter), 1fr) minmax(0, 900px) minmax(var(--size-gutter), 1fr);
+  row-gap: 2.5em;
+}
+
+.textBlock {
+  grid-column: 2;
+  justify-self: center;
+  width: 100%;
+}
+
+.fullBleed {
+  grid-column: 1 / -1;
+  width: 100%;
+  display: flex; /* Adicionado para centralizar a imagem */
+  justify-content: center; /* Adicionado para centralizar a imagem */
+  margin: 0 auto;
+}
+
+/* NOVA CLASSE: Para a primeira imagem */
+.firstImage {
+  max-width: 1920px;
+}
+
+/* NOVA CLASSE: Para as outras imagens */
+.otherImage {
+  max-width: 1440px;
+  padding: 0px 48px;
+}
+
+/* Estilos para os elementos de texto */
+.title {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 0.2em;
+}
+
+.description {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+  color: #888;
+  margin-bottom: 2em;
+}
+
+.heading {
+  font-size: 2em;
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.paragraph {
+  font-size: 1.1em;
+  line-height: 1.8;
+  margin-bottom: 1em;
+}
+
+/* Estilos para a imagem */
+.image {
+  width: 100%;
+  height: auto;
+  /* Removemos o border-radius para ir de ponta a ponta */
+  border-radius: 0; 
+  display: block;
+}

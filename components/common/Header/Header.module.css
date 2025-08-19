@@ -1,0 +1,57 @@
+/* Em: components/common/Header/Header.module.css */
+
+.header {
+  position: relative; /* Não é mais fixo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2.5rem var(--size-gutter); /* Usa a nova margem global */
+  z-index: 1000;
+  background-color: transparent; /* Fundo transparente */
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* Espaço entre o botão de tema e o de menu */
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: var(--size-inner);
+  margin: 0 auto;
+}
+
+.logo {
+  border-bottom: 0;
+}
+
+.symbol img {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+.menuToggle {
+  -webkit-tap-highlight-color: transparent;
+  background-color: transparent; /* Removido fundo branco */
+  border-radius: var(--size-border-radius);
+  border: 1px solid var(--color-border); /* Adicionada uma borda sutil */
+  color: var(--color-fg);
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: var(--font-weight-black);
+  height: 2.75em;
+  line-height: 2.75em;
+  padding: 0 1.5em;
+  text-transform: uppercase;
+  transition: color var(--duration-transition) ease, border-color var(--duration-transition) ease;
+}
+
+.menuToggle:hover {
+  color: var(--color-accent1);
+  border-color: var(--color-accent1);
+}

@@ -1,0 +1,21 @@
+/* Em: components/sections/ProjectGrid/ProjectGrid.module.css */
+.section {
+  padding: 4rem 0;
+}
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin-bottom: 2rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Grade de 2 colunas */
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* Coluna única em telas menores */
+  }
+}

@@ -1,0 +1,71 @@
+/* Em: styles/pages/SobreMim.module.css */
+
+.pageContainer {
+  padding-top: 10em;
+  padding-bottom: 5em;
+  min-height: 80vh;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4em;
+}
+
+.textContainer {
+  flex: 2; /* Ocupa 2/3 do espaço */
+  max-width: 65ch; /* Limita a largura da linha para melhor legibilidade */
+}
+
+.textContainer h1 {
+  font-size: 2.5em;
+  line-height: 1.3;
+  margin-bottom: 1em;
+}
+
+.imageContainer {
+  flex: 1; /* Ocupa 1/3 do espaço */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.resumeLink {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.8em 1.5em;
+  border: 2px solid var(--color-fg);
+  border-radius: var(--size-border-radius);
+  color: var(--color-fg);
+  text-transform: uppercase;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.1em;
+  transition: all var(--duration-transition) ease;
+}
+
+.resumeLink:hover {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  border-color: var(--color-fg);
+}
+
+/* Estilos para telas menores (mobile) */
+@media (max-width: 980px) {
+  .pageContainer {
+    padding-top: 8em;
+  }
+  .contentWrapper {
+    flex-direction: column-reverse; /* Inverte a ordem: imagem primeiro, depois texto */
+    gap: 2em;
+    text-align: center;
+  }
+  .textContainer h1 {
+    font-size: 2em;
+  }
+}
