@@ -12,9 +12,11 @@ interface LayoutProps {
   children: ReactNode;
   title?: string;
   description?: string;
+  t: { [key: string]: string }; // 1. Adicionar 't' à interface de props
 }
 
-const Layout = memo(({ children, title, description }: LayoutProps) => {
+// 2. Adicionar 't' à desestruturação das props
+const Layout = memo(({ children, title, description, t }: LayoutProps) => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
 
   const seoTitle = title
@@ -25,30 +27,38 @@ const Layout = memo(({ children, title, description }: LayoutProps) => {
     'Utilizando o Design gosto de descobrir insights baseados em dados e construir soluções para os usuários dentro de um time diverso e colaborativo.';
 
   return (
-    // Usamos um Fragment <> para agrupar os elementos sem adicionar uma div extra
     <>
       <NextSeo
         title={seoTitle}
         description={seoDescription}
         openGraph={{
-          // ... (suas configurações de SEO continuam aqui)
+          title: seoTitle,
+          description: seoDescription,
+          type: 'website',
+          locale: 'pt_BR',
+          url: 'https://www.melkoserak.com/',
+          siteName: 'Melko Serak Neto - Design Portfólio',
+          images: [
+            {
+              url: '/logo-melko-compartilhar.gif',
+              alt: 'Melko Serak Logo'
+            }
+          ]
         }}
         twitter={{
           cardType: 'summary_large_image'
         }}
       />
       
-      {/* O Menu agora é um "irmão" da div wrapper, e não um "filho" */}
       <Menu isOpen={isOpen} onClose={closeMenu} />
 
-      {/* Esta é a div que ficará com opacidade quando o menu abrir */}
       <div className={`${styles.wrapper} ${isOpen ? styles.menuVisible : ''}`}>
-        <Header onMenuToggle={toggleMenu} isMenuOpen={isOpen} />
+        {/* Agora a variável 't' existe e pode ser passada para o Header */}
+        <Header onMenuToggle={toggleMenu} isMenuOpen={isOpen} t={t} />
         
         <main className={styles.main} id="main">
-          <div className="page-container">
-            {children}
-          </div>
+          {/* A div .inner foi removida, conforme discutimos */}
+          {children}
         </main>
         
         <Footer />

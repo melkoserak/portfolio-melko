@@ -1,15 +1,24 @@
+// Em: components/sections/Hero/Hero.tsx
+
 import { memo } from 'react';
 import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
 
-const Hero = memo(({ t }: { t: { [key: string]: string } }) => {
+interface HeroProps {
+  t: { [key: string]: string };
+}
+
+const Hero = memo(({ t }: HeroProps) => {
   return (
-    <motion.section /* ... */>
-      <header className={styles.header}>
-        <h1 className={styles.title}>
-          {t.heroTitle} {/* Usa a tradução em vez do texto fixo */}
-        </h1>
-      </header>
+    <motion.section
+      className={styles.hero}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      <h1 className={styles.title}>
+        {t.heroTitle}
+      </h1>
     </motion.section>
   );
 });

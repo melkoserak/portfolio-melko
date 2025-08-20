@@ -4,7 +4,11 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styles from './LanguageSwitcher.module.css';
 
-const LanguageSwitcher = () => {
+interface LanguageSwitcherProps {
+  label: string;
+}
+
+const LanguageSwitcher = ({ label }: LanguageSwitcherProps) => {
   const router = useRouter();
   const { locales, locale: activeLocale, pathname, query } = router;
 
@@ -19,7 +23,8 @@ const LanguageSwitcher = () => {
             key={locale}
             href={{ pathname, query }}
             locale={locale}
-            className={styles.link}
+            className="button"
+            aria-label={`${label} ${locale.toUpperCase()}`} // Usa a prop traduzida
           >
             {locale.toUpperCase()}
           </Link>

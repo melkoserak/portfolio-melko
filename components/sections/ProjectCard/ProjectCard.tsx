@@ -7,19 +7,18 @@ import { motion } from 'framer-motion';
 import { ProjectCardProps } from '../../../lib/types';
 import styles from './ProjectCard.module.css';
 
-// Adicionamos 'id' às props que o componente recebe diretamente
 const ProjectCard = memo(({ 
   id, 
   title, 
   description, 
   image, 
-  href, // Ainda recebemos o href, mas vamos usar o "id" para o link
+  href,
   style, 
   priority = false 
 }: ProjectCardProps) => {
   return (
     <motion.article 
-      className={`${styles.card} ${styles[`style${style}`]}`}
+      className={styles.card}
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 300 }}
     >
@@ -28,17 +27,19 @@ const ProjectCard = memo(({
           src={image}
           alt={`Capa do projeto ${title}`}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          // CORREÇÃO DE QUALIDADE 1: Ajusta o `sizes` para o novo tamanho
+          sizes="(max-width: 768px) 100vw, 70vw"
+          // CORREÇÃO DE QUALIDADE 2: Pede uma imagem com 90% de qualidade
+          quality={90}
           className={styles.image}
           priority={priority}
         />
       </div>
       
-      {/* CORREÇÃO PRINCIPAL ESTÁ AQUI */}
       <Link 
         href={{
-          pathname: '/projetos/[slug]', // Aponta para o nosso template de página
-          query: { slug: id },          // Usa o ID do projeto como o "slug"
+          pathname: '/projetos/[slug]',
+          query: { slug: id },
         }}
         className={styles.link} 
         aria-label={`Ver projeto ${title}`}

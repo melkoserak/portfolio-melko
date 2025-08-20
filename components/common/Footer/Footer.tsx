@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { motion } from 'framer-motion';
 import { CONTACT_EMAIL, SOCIAL_LINKS } from '../../../lib/constants';
 import styles from './Footer.module.css';
-import { FaLinkedin, FaBehance } from 'react-icons/fa'; // Importa os ícones
+import { FaLinkedin, FaBehance } from 'react-icons/fa';
 
 const icons: { [key: string]: React.ElementType } = {
   linkedin: FaLinkedin,
@@ -27,7 +27,8 @@ const Footer = memo(() => {
 
         <section className={styles.socialSection}>
           <ul className={styles.icons}>
-            {SOCIAL_LINKS.map(({ href, label, icon }) => {
+            {/* CORREÇÃO: Adicionamos uma verificação para garantir que SOCIAL_LINKS existe antes de mapear */}
+            {SOCIAL_LINKS && SOCIAL_LINKS.map(({ href, label, icon }) => {
               const IconComponent = icons[icon];
               return (
                 <li key={label}>

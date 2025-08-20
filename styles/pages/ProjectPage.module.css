@@ -33,7 +33,7 @@
 
 /* Estilos para os elementos de texto */
 .title {
-  font-size: 3em;
+  font-size: 5rem;
   text-align: center;
   margin-bottom: 0.2em;
 }
@@ -47,8 +47,7 @@
 }
 
 .heading {
-  font-size: 2em;
-  border-bottom: 2px solid var(--color-border);
+  font-size: 4rem;
   padding-bottom: 0.5em;
   margin-top: 1em;
   margin-bottom: 0.5em;
@@ -56,7 +55,7 @@
 
 .paragraph {
   font-size: 1.1em;
-  line-height: 1.8;
+  line-height: 2;
   margin-bottom: 1em;
 }
 
@@ -65,6 +64,30 @@
   width: 100%;
   height: auto;
   /* Removemos o border-radius para ir de ponta a ponta */
-  border-radius: 0; 
+  border-radius: 12px; 
   display: block;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 8em;
+    grid-template-columns: 1fr; /* Coluna única */
+    padding-left: calc(var(--size-gutter) / 2);
+    padding-right: calc(var(--size-gutter) / 2);
+     row-gap: 0.5em;
+  }
+
+  .textBlock,
+  .fullBleed {
+    grid-column: 1 / -1; /* Todos os blocos ocupam a única coluna */
+  }
+
+
+  .heading {
+    font-size: 3rem;
+  }
+
+  .otherImage {
+  padding: 0px 0px;
+}
 }

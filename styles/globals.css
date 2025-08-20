@@ -7,10 +7,9 @@
   --color-fg: #111111; /* Texto escuro */
   --color-fg-muted: #555555;
   --color-border: #EAEAEA;
-  --color-accent1: #FF4D00; /* Vermelho/Laranja como destaque */
+  --color-accent1: #111111; /* Vermelho/Laranja como destaque */
 
   /* Font */
-  --font-family-body: var(--font-inter);
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --font-weight-black: 900;
@@ -23,6 +22,16 @@
   /* Animation */
   --duration-transition: 0.3s;
   --duration-menu: 0.45s;
+}
+
+/* TEMA ESCURO (Quando o body tiver o atributo data-theme="dark") */
+[data-theme='dark'] {
+  --color-bg: #111111;
+  --color-fg: #EAEAEA;
+  --color-fg-muted: #888888;
+  --color-border: #333333;
+  --color-bg-alt: #1e1e1e;
+  --color-accent1: #b0b0b0; /* Verde-limão para melhor contraste no escuro */
 }
 
 /* PARTE 2: ESTILOS GLOBAIS ATUALIZADOS */
@@ -47,7 +56,7 @@ h1, h2, h3, h4, p, ul, ol, li, figure {
 }
 
 h1, h2, h3 {
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight-normal);
   line-height: 1.2;
   margin-bottom: 1rem;
 }
@@ -59,6 +68,8 @@ h3 { font-size: 1.5rem; }
 p {
   margin-bottom: 1.5rem;
   max-width: 65ch; /* Limita a largura do parágrafo para legibilidade */
+  line-height: 2em;
+  color: var(--color-fg);
 }
 
 a {
@@ -75,4 +86,35 @@ a:hover {
   max-width: var(--size-inner);
   margin: 0 auto;
   padding: 0 var(--size-gutter);
+}
+
+/* Estilo Global para Botões */
+.button {
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--size-border-radius);
+  color: var(--color-fg);
+  cursor: pointer;
+  font-size: 0.8em;
+  font-weight: var(--font-weight--normal) !important;
+  line-height: 1.2;
+  padding: 0.75em 1.5em;
+  text-transform: none;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  transition: color var(--duration-transition) ease, border-color var(--duration-transition) ease, background-color var(--duration-transition) ease;
+}
+
+.button:hover {
+  border-color: var(--color-accent1);
+  color: var(--color-accent1);
+  background-color: transparent; /* Garante que não haja fundo no hover */
+}
+
+@media (max-width: 768px) {
+  :root {
+  
+  --size-gutter: 0.5rem; /* Margem maior */
+  }
 }

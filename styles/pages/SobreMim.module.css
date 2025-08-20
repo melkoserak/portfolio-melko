@@ -36,24 +36,6 @@
   object-fit: cover;
 }
 
-.resumeLink {
-  display: inline-block;
-  margin-top: 1em;
-  padding: 0.8em 1.5em;
-  border: 2px solid var(--color-fg);
-  border-radius: var(--size-border-radius);
-  color: var(--color-fg);
-  text-transform: uppercase;
-  font-weight: var(--font-weight-bold);
-  letter-spacing: 0.1em;
-  transition: all var(--duration-transition) ease;
-}
-
-.resumeLink:hover {
-  background-color: var(--color-fg);
-  color: var(--color-bg);
-  border-color: var(--color-fg);
-}
 
 /* Estilos para telas menores (mobile) */
 @media (max-width: 980px) {
@@ -63,7 +45,7 @@
   .contentWrapper {
     flex-direction: column-reverse; /* Inverte a ordem: imagem primeiro, depois texto */
     gap: 2em;
-    text-align: center;
+    text-align: left;
   }
   .textContainer h1 {
     font-size: 2em;

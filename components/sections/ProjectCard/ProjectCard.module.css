@@ -1,24 +1,31 @@
 /* Em: components/sections/ProjectCard/ProjectCard.module.css */
+
 .card {
   position: relative;
   display: block;
   overflow: hidden;
   border-radius: var(--size-border-radius);
   background-color: var(--color-border);
+  height: 100%; /* Garante que o cartão ocupe todo o espaço da grelha */
 }
+
 .imageWrapper {
   position: relative;
   width: 100%;
   /* Proporção retangular (16:9) */
-  padding-bottom: 56.25%; 
+  
+  padding-bottom: 84.25%; 
 }
+
 .image {
   object-fit: cover;
   transition: transform 0.5s ease !important;
 }
+
 .card:hover .image {
   transform: scale(1.05);
 }
+
 .link {
   display: flex;
   flex-direction: column;
@@ -29,32 +36,48 @@
   width: 100%;
   height: 100%;
   padding: 1.5rem;
-  color: white; /* Cor do texto no card */
+  color: white; /* Cor do texto no cartão */
   text-align: left;
   border-bottom: 0;
   z-index: 3;
   background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%); /* Gradiente para legibilidade */
 }
+
 .link:hover {
   color: white;
 }
+
 .content {
   position: relative;
   z-index: 2;
   transform: translateY(1rem);
-  transition: transform 0.4s ease;
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
+
 .card:hover .content {
   transform: translateY(0);
+  opacity: 1;
 }
+
 .title {
   color: white;
   font-size: 1.5rem;
+  font-weight: var(--font-weight--normal); ;
   text-transform: none;
   margin: 0 0 0.25rem 0;
 }
+
 .description p {
   margin: 0;
   font-size: 1rem;
-  color: rgba(255,255,255,0.8);
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+
+  .content {
+  opacity: 1;
+  }
 }

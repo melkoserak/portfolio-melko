@@ -3,11 +3,26 @@
 import Layout from '../components/common/Layout';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import styles from '../styles/pages/SobreMim.module.css';
+import styles from '../styles/pages/SobreMim.module.css'; 
+import { GetStaticProps } from 'next';
+import { promises as fs } from 'fs';
+import path from 'path';  
 
-export default function SobreMim() {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const jsonPath = path.join(process.cwd(), 'locales', `${locale || 'pt'}.json`);
+  const fileContent = await fs.readFile(jsonPath, 'utf8');
+  const t = JSON.parse(fileContent);
+
+  return {
+    props: {
+      t,
+    },
+  };
+};
+
+export default function SobreMim({ t }: { t: { [key: string]: string } }) {
   return (
-    <Layout title="Sobre Mim">
+    <Layout title="Sobre Mim" t={t}>
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
@@ -31,7 +46,7 @@ export default function SobreMim() {
             </p>
             <a 
               href="/images/melko-curriculo.pdf" 
-              className={styles.resumeLink}
+              className="button"
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -56,3 +71,4 @@ export default function SobreMim() {
     </Layout>
   );
 }
+

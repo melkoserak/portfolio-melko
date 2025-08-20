@@ -43,15 +43,22 @@
   cursor: pointer;
   display: inline-block;
   font-size: 0.8em;
-  font-weight: var(--font-weight-black);
+  font-weight: var(--font-weight--normal);
   height: 2.75em;
   line-height: 2.75em;
   padding: 0 1.5em;
-  text-transform: uppercase;
+  text-transform: none;
   transition: color var(--duration-transition) ease, border-color var(--duration-transition) ease;
 }
 
 .menuToggle:hover {
   color: var(--color-accent1);
   border-color: var(--color-accent1);
+}
+
+@media (max-width: 768px) {
+
+  .header {
+  padding: var(--size-gutter); /* Usa a nova margem global */
+}
 }

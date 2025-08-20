@@ -3,18 +3,21 @@
 import { memo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion'; // <-- A importação que estava faltando
+import { motion } from 'framer-motion';
 import styles from './Header.module.css';
 import { ThemeToggleButton } from '../ThemeToggleButton';
-import LanguageSwitcher from '../LanguageSwitcher'; // 1. Importe o novo componente
-
+import LanguageSwitcher from '../LanguageSwitcher';
+import { useTheme } from '../../../context/ThemeContext';
 
 interface HeaderProps {
   onMenuToggle: () => void;
   isMenuOpen: boolean;
+  t: { [key: string]: string }; // Recebe o objeto de tradução
 }
 
-const Header = memo(({ onMenuToggle, isMenuOpen }: HeaderProps) => {
+const Header = memo(({ onMenuToggle, isMenuOpen, t }: HeaderProps) => {
+  const { theme } = useTheme();
+
   return (
     <motion.header 
       className={styles.header}
@@ -27,7 +30,7 @@ const Header = memo(({ onMenuToggle, isMenuOpen }: HeaderProps) => {
         <Link href="/" className={styles.logo} aria-label="Voltar para a página inicial">
           <span className={styles.symbol}>
             <Image
-              src="/images/logo-melko.svg"
+              src={theme === 'dark' ? "/images/logo-melko-white.svg" : "/images/logo-melko.svg"}
               alt="Logo Melko Serak"
               width={64}
               height={64}
@@ -37,12 +40,16 @@ const Header = memo(({ onMenuToggle, isMenuOpen }: HeaderProps) => {
         </Link>
         
         <nav className={styles.nav}>
-          <LanguageSwitcher /> {/* 2. Adicione o componente aqui */}
-          <ThemeToggleButton />
+          {/* Passa as traduções para os componentes */}
+          <LanguageSwitcher label={t.switchLanguage} />
+          <ThemeToggleButton 
+            labelLight={t.toggleThemeToLight}
+            labelDark={t.toggleThemeToDark}
+          />
           <motion.button
             type="button"
             onClick={onMenuToggle}
-            className={styles.menuToggle}
+            className="button"
             aria-label="Abrir menu"
             aria-expanded={isMenuOpen}
             whileHover={{ scale: 1.05 }}

@@ -1,0 +1,32 @@
+/* Em: components/sections/HorizontalShowcase/HorizontalShowcase.module.css */
+
+.container {
+  /* A altura precisa ser ajustada com base no número de projetos para dar espaço de scroll */
+  height: 500vh; /* Aumentado para mais espaço de rolagem */
+  position: relative;
+}
+
+.stickyWrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 45vw; /* Espaço inicial */
+  width: max-content;
+  gap: 5rem; /* Aumenta o espaço entre os cartões */
+}
+
+/* --- AQUI ESTÁ A MUDANÇA PRINCIPAL --- */
+.cardWrapper {
+  flex-shrink: 0;
+  width: 70vw;  /* Largura de 70% da viewport */
+  height: 80vh; /* Altura de 80% da viewport */
+  position: relative; /* Adicionado para o cartão se comportar bem */
+}

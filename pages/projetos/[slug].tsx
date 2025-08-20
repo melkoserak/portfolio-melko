@@ -4,7 +4,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import Layout from '../../components/common/Layout';
 import { Project, ContentBlock } from '../../lib/types';
-import { uxuiProjects, brandProjects } from '../../data/projects';
+import { uxuiProjects } from '../../data/projects';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from '../../styles/pages/ProjectPage.module.css';
@@ -82,7 +82,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  const allProjects = [...uxuiProjects, ...brandProjects];
+  const allProjects = [...uxuiProjects ];
   const paths: any[] = [];
 
   // Para cada projeto...
@@ -105,7 +105,7 @@ interface Params extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps<ProjectPageProps, Params> = async (context) => {
   const { slug } = context.params!;
-  const allProjects = [...uxuiProjects, ...brandProjects];
+  const allProjects = [...uxuiProjects];
   
   // --- INÍCIO DO CÓDIGO DE DEBUG ---
   console.log(`--- [Página de Projeto] ---`);

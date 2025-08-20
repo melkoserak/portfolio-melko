@@ -56,10 +56,3 @@ export const uxuiProjects: Project[] = [
     { type: 'paragraph', text: 'Criar um website não se resume apenas a criar uma interface visual atraente. É crucial definir objetivos claros e compreender profundamente os usuários para apresentar de forma clara e direta o que eles estão procurando. As métricas e o monitoramento de usuários são ferramentas essenciais para avaliar o desempenho do website e identificar oportunidades de melhoria.' }
   ]
 }];
-
-export const brandProjects: Project[] = [
-  { id: 'sonic', title: 'Sonic', description: 'Criação de identidade visual e direção de arte.', type: 'Brand Design', category: 'identity', image: '/images/sonic/sonic-capa.png', href: '/projetos/sonic', style: 1 },
-  { id: 'di-verano', title: 'Di Verano', description: 'Criação de identidade visual, direção de arte e comunicação visual para mídias.', type: 'Brand Design', category: 'identity', image: '/images/di-verano/di-verano-capa.png', href: '/projetos/di-verano', style: 2 },
-  { id: 'loopbass', title: 'Loopbass', description: 'Criação de identidade visual e direção de arte.', type: 'Brand Design', category: 'identity', image: '/images/loopbass/loopbass-capa.png', href: '/projetos/loopbass', style: 3 },
-  { id: 'monaco', title: 'Monaco Alpha seguros', description: 'Criação de identidade visual e direção de arte.', type: 'Brand Design', category: 'identity', image: '/images/monaco/capa-amp.png', href: '/projetos/amp', style: 4 }
-];

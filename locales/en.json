@@ -2,5 +2,8 @@
   "heroTitle": "Welcome! I'm Melko, a Product Designer who has fun with design, code, and numbers.",
   "navHome": "Home",
   "navAbout": "About me",
-  "navContact": "Contact"
+  "navContact": "Contact",
+  "toggleThemeToDark": "Switch to dark theme",
+  "toggleThemeToLight": "Switch to light theme",
+  "switchLanguage": "Switch language to"
 }

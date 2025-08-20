@@ -16,7 +16,6 @@
 
 .contentWrapper h1 {
   font-size: 3em;
-  font-weight: var(--font-weight-black);
   line-height: 1.2;
 }
 
@@ -29,7 +28,7 @@
 .emailLink {
   display: inline-block;
   font-size: 1.5em;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-normal);
   border-bottom: 2px solid var(--color-accent1);
   padding-bottom: 0.2em;
   color: var(--color-fg);
