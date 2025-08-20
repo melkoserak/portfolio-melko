@@ -7,16 +7,15 @@ import { motion } from 'framer-motion';
 import styles from './Header.module.css';
 import { ThemeToggleButton } from '../ThemeToggleButton';
 import LanguageSwitcher from '../LanguageSwitcher';
-import { useTheme } from '../../../context/ThemeContext';
+import { useTheme } from '../../../context/ThemeContext'; // 1. Importe o hook do tema
 
 interface HeaderProps {
   onMenuToggle: () => void;
   isMenuOpen: boolean;
-  t: { [key: string]: string }; // Recebe o objeto de tradução
 }
 
-const Header = memo(({ onMenuToggle, isMenuOpen, t }: HeaderProps) => {
-  const { theme } = useTheme();
+const Header = memo(({ onMenuToggle, isMenuOpen }: HeaderProps) => {
+  const { theme } = useTheme(); // 2. Obtenha o tema atual
 
   return (
     <motion.header 
@@ -29,6 +28,7 @@ const Header = memo(({ onMenuToggle, isMenuOpen, t }: HeaderProps) => {
       <div className={styles.inner}>
         <Link href="/" className={styles.logo} aria-label="Voltar para a página inicial">
           <span className={styles.symbol}>
+            {/* 3. A fonte da imagem (src) agora é condicional */}
             <Image
               src={theme === 'dark' ? "/images/logo-melko-white.svg" : "/images/logo-melko.svg"}
               alt="Logo Melko Serak"
@@ -40,12 +40,8 @@ const Header = memo(({ onMenuToggle, isMenuOpen, t }: HeaderProps) => {
         </Link>
         
         <nav className={styles.nav}>
-          {/* Passa as traduções para os componentes */}
-          <LanguageSwitcher label={t.switchLanguage} />
-          <ThemeToggleButton 
-            labelLight={t.toggleThemeToLight}
-            labelDark={t.toggleThemeToDark}
-          />
+          <LanguageSwitcher label={''} />
+          <ThemeToggleButton />
           <motion.button
             type="button"
             onClick={onMenuToggle}

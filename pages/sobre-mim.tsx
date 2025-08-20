@@ -3,26 +3,11 @@
 import Layout from '../components/common/Layout';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import styles from '../styles/pages/SobreMim.module.css'; 
-import { GetStaticProps } from 'next';
-import { promises as fs } from 'fs';
-import path from 'path';  
+import styles from '../styles/pages/SobreMim.module.css';
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const jsonPath = path.join(process.cwd(), 'locales', `${locale || 'pt'}.json`);
-  const fileContent = await fs.readFile(jsonPath, 'utf8');
-  const t = JSON.parse(fileContent);
-
-  return {
-    props: {
-      t,
-    },
-  };
-};
-
-export default function SobreMim({ t }: { t: { [key: string]: string } }) {
+export default function SobreMim() {
   return (
-    <Layout title="Sobre Mim" t={t}>
+    <Layout title="Sobre Mim">
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
@@ -71,4 +56,3 @@ export default function SobreMim({ t }: { t: { [key: string]: string } }) {
     </Layout>
   );
 }
-

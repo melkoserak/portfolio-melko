@@ -21,7 +21,7 @@ export default function Home({ allProjects, t }: HomeProps) {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
-    <Layout t={t}> {/* Passe a prop t aqui */}
+    <Layout>
       <div className="page-container">
         <Hero t={t} />
       </div>

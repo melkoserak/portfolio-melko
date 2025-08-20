@@ -4,25 +4,10 @@ import Layout from '../components/common/Layout';
 import { motion } from 'framer-motion';
 import { CONTACT_EMAIL, SOCIAL_LINKS } from '../lib/constants';
 import styles from '../styles/pages/Contato.module.css';
-import { GetStaticProps } from 'next';
-import { promises as fs } from 'fs';
-import path from 'path';  
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  const jsonPath = path.join(process.cwd(), 'locales', `${locale || 'pt'}.json`);
-  const fileContent = await fs.readFile(jsonPath, 'utf8');
-  const t = JSON.parse(fileContent);
-
-  return {
-    props: {
-      t,
-    },
-  };
-};
-
-export default function Contato({ t }: { t: { [key: string]: string } }) {
+export default function Contato() {
   return (
-    <Layout title="Contato" t={t}>
+    <Layout title="Contato">
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
