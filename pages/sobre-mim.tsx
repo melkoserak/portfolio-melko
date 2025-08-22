@@ -4,10 +4,18 @@ import Layout from '../components/common/Layout';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from '../styles/pages/SobreMim.module.css';
+import { GetStaticProps } from 'next';
+import { promises as fs } from 'fs';
+import path from 'path';
+import pt from '../locales/pt.json'; // Importa as traduções padrão
 
-export default function SobreMim() {
+interface SobreMimProps {
+  t: { [key: string]: string };
+}
+
+export default function SobreMim({ t = pt }: SobreMimProps) { // Define 'pt' como valor padrão
   return (
-    <Layout title="Sobre Mim">
+    <Layout title={t.navAbout}>
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
@@ -17,25 +25,17 @@ export default function SobreMim() {
       >
         <div className={styles.contentWrapper}>
           <div className={styles.textContainer}>
-            <h1>
-              Meu Nome é Melko Serak Neto e trabalho com soluções usando o design.
-            </h1>
-            <p>
-              Me formei em Publicidade e Propaganda pela FMU - Faculdades Metropolitanas Unidas de São Paulo e ao longo da minha trajetória, tive a oportunidade de acompanhar de perto a evolução tecnológica e o impacto que o design teve na jornada do consumidor.
-            </p>
-            <p>
-              Durante minha vivência internacional de 3 anos na Austrália, pude me especializar em Estrutura de Projetos em Design pela Mindroom Innovation. Atualmente, estou me aprofundando em comportamento do usuário e design de interface na Cesar School para aprimorar ainda mais meus conhecimentos.
-            </p>
-            <p>
-              Meu principal objetivo é descobrir insights baseados em dados e utilizar o design como uma ferramenta para gerar um impacto positivo nos negócios. Trabalho sempre em equipe, acreditando que a diversidade e a colaboração são fundamentais para criar soluções eficazes para os usuários.
-            </p>
-            <a 
-              href="/images/melko-curriculo.pdf" 
+            <h1>{t.aboutTitle}</h1>
+            <p>{t.aboutP1}</p>
+            <p>{t.aboutP2}</p>
+            <p>{t.aboutP3}</p>
+            <a
+              href="/images/melko-curriculo.pdf"
               className="button"
-              target="_blank" 
+              target="_blank"
               rel="noopener noreferrer"
             >
-              Veja meu currículo
+              {t.aboutResume}
             </a>
           </div>
 
@@ -56,3 +56,15 @@ export default function SobreMim() {
     </Layout>
   );
 }
+
+export const getStaticProps: GetStaticProps<SobreMimProps> = async ({ locale }) => {
+  const jsonPath = path.join(process.cwd(), 'locales', `${locale || 'pt'}.json`);
+  const fileContent = await fs.readFile(jsonPath, 'utf8');
+  const t = JSON.parse(fileContent);
+
+  return {
+    props: {
+      t,
+    },
+  };
+};

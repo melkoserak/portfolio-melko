@@ -14,3 +14,49 @@
   color: var(--color-bg);
   border-color: var(--color-fg);
 }
+
+.switcher {
+  display: flex;
+  align-items: center;
+}
+
+.tooltipWrapper {
+  position: relative;
+}
+
+/* Estilos do Tooltip */
+.tooltipWrapper[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  padding: 0.4em 0.8em;
+  border-radius: var(--size-border-radius);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tooltipWrapper[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.1s;
+}
+
+
+[data-theme='dark'] .link {
+  border-color: var(--color-border);
+}
+
+[data-theme='dark'] .link:hover {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  border-color: var(--color-fg);
+}

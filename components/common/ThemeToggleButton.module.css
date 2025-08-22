@@ -20,3 +20,45 @@
 [data-theme='dark'] .toggleButton:hover {
   background-color: rgba(255,255,255,0.1);
 }
+
+.toggleButton {
+  /* Adicione position: relative para o tooltip funcionar */
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem; /* Tamanho do ícone */
+  color: var(--color-fg);
+  padding: 0.5em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Estilos do Tooltip */
+.toggleButton[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%; /* Posiciona o tooltip acima do botão */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  padding: 0.4em 0.8em;
+  border-radius: var(--size-border-radius);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease; /* Transição rápida */
+  pointer-events: none; /* Impede que o tooltip interfira com o mouse */
+  z-index: 10;
+}
+
+.toggleButton[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0.1s; /* Pequeno atraso para não aparecer instantaneamente */
+}

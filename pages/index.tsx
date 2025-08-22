@@ -4,12 +4,12 @@ import { GetStaticProps } from 'next';
 import Layout from '../components/common/Layout';
 import Hero from '../components/sections/Hero';
 import HorizontalShowcase from '../components/sections/HorizontalShowcase';
-import { useMediaQuery } from '../hooks/useMediaQuery'; // 1. Importar o hook
-import { uxuiProjects } from '../data/projects';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 import { Project } from '../lib/types';
 import { promises as fs } from 'fs';
 import path from 'path';
 import ProjectGrid from '../components/sections/ProjectGrid';
+import { getUxUiProjects } from '../data/projects'; // Importe a função
 
 interface HomeProps {
   allProjects: Project[];
@@ -17,7 +17,6 @@ interface HomeProps {
 }
 
 export default function Home({ allProjects, t }: HomeProps) {
-  // 2. Usar o hook. Retorna 'true' se a tela for menor que 768px.
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
@@ -26,14 +25,11 @@ export default function Home({ allProjects, t }: HomeProps) {
         <Hero t={t} />
       </div>
 
-      {/* 3. Renderização condicional */}
       {isMobile ? (
-        // Se for mobile, mostra a grelha de projetos vertical
         <div className="page-container">
           <ProjectGrid title="Projetos" projects={allProjects} priority={true} />
         </div>
       ) : (
-        // Se for desktop, mostra o scroll horizontal
         <HorizontalShowcase projects={allProjects} />
       )}
     </Layout>
@@ -45,12 +41,12 @@ export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
   const fileContent = await fs.readFile(jsonPath, 'utf8');
   const t = JSON.parse(fileContent);
 
-  // Juntamos os dois arrays de projetos em um só
-  const allProjects = [...uxuiProjects];
+  // Chame a função com as traduções
+  const allProjects = getUxUiProjects(t);
 
   return {
     props: {
-      allProjects, // Passando a lista para a página
+      allProjects,
       t,
     },
   };

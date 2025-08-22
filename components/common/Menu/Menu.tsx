@@ -1,16 +1,23 @@
+// Em: components/common/Menu/Menu.tsx
+
 import { memo } from 'react';
 import { useRouter } from 'next/router';
 import { motion, AnimatePresence } from 'framer-motion';
-import { NAVIGATION_ITEMS } from '../../../lib/constants';
+import { getNavigationItems } from '../../../lib/constants'; // Importa a nova função
 import { MenuProps } from '../../../lib/types';
 import styles from './Menu.module.css';
+import pt from '../../../locales/pt.json';
+import en from '../../../locales/en.json';
 
 const Menu = memo(({ isOpen, onClose }: MenuProps) => {
   const router = useRouter();
+  const { locale } = router;
+  const t = locale === 'en' ? en : pt;
+
+  const navigationItems = getNavigationItems(t);
 
   const handleLinkClick = (href: string) => {
     onClose();
-    // Apenas redireciona, a animação é controlada pelo _app
     router.push(href);
   };
 
@@ -26,7 +33,7 @@ const Menu = memo(({ isOpen, onClose }: MenuProps) => {
             transition={{ duration: 0.3 }}
             onClick={onClose}
           />
-          
+
           <motion.aside
             className={styles.menu}
             initial={{ x: '100%' }}
@@ -41,7 +48,7 @@ const Menu = memo(({ isOpen, onClose }: MenuProps) => {
               <h2 className={styles.menuTitle}>Menu</h2>
               <nav role="navigation" aria-label="Navegação principal">
                 <ul className={styles.menuList}>
-                  {NAVIGATION_ITEMS.map(({ href, label }) => (
+                  {navigationItems.map(({ href, label }) => (
                     <li key={href}>
                       <button
                         type="button"

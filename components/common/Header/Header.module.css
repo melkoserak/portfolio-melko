@@ -60,5 +60,5 @@
 
   .header {
   padding: var(--size-gutter); /* Usa a nova margem global */
-}
+  }
 }

@@ -68,6 +68,55 @@
   display: block;
 }
 
+.iframe {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.splideContainer {
+  /* Centraliza o carrossel e limita sua largura */
+  max-width: 900px; /* Mesma largura do .textBlock */
+  margin: 2em auto; /* Centraliza horizontalmente e adiciona espaço vertical */
+  grid-column: 2; /* Garante que ele fique na coluna central como o texto */
+  width: 100%;
+  padding: 8px 0px;
+  background-color: #ececec;
+  border-radius: 12px
+}
+
+.splideImage {
+  width: 100%;
+  max-width: 821px; /* Adicione esta linha */
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto; /* Adicione esta linha para centralizar a imagem */
+}
+
+.splidePagination {
+    bottom: 0em !important;
+    left: 0;
+    padding: 0 1em;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.splidePagination li {
+    background: var(--color--fg);
+    transform: scale(1.4);
+    z-index: 1;
+}
+
 @media (max-width: 768px) {
   .container {
     padding-top: 8em;
@@ -82,6 +131,10 @@
     grid-column: 1 / -1; /* Todos os blocos ocupam a única coluna */
   }
 
+  .splideContainer {
+    grid-column: 1 / -1; /* Ocupa a coluna única em mobile */
+  }
+
 
   .heading {
     font-size: 3rem;
@@ -90,4 +143,89 @@
   .otherImage {
   padding: 0px 0px;
 }
+}
+
+/* Estilos para a grade de introdução */
+.introGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem 3rem;
+  margin: 3em 0;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 3em;
+}
+
+.introGridItem h3 {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin-bottom: 0.5em;
+}
+
+.introGridItem p {
+  font-size: 1em;
+  line-height: 1.8;
+  max-width: none; /* Remove a limitação de largura dos parágrafos aqui */
+}
+
+/* Estilos para a lista de aspectos */
+.featureList {
+  background-color: #fbfbfb;
+  padding: 3em;
+  border-radius: 12px;
+  margin: 2em 0;
+}
+
+[data-theme='dark'] .featureList {
+  background-color: var(--color-bg-alt);
+}
+
+.featureListItem h4 {
+  font-size: 1.2em;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: 0.5em;
+}
+
+.featureListItem p {
+  font-size: 1em;
+  line-height: 1.8;
+  max-width: none;
+}
+
+.otherProjectsSection {
+  border-top: 1px solid var(--color-border);
+  padding: 4em 0;
+  margin-top: 4em;
+}
+
+.otherProjectsTitle {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.otherProjectsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Grade com 2 colunas */
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .otherProjectsGrid {
+    grid-template-columns: 1fr; /* Coluna única em telas menores */
+  }
+
+  .otherProjectsTitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .introGrid {
+    grid-template-columns: 1fr; /* Coluna única em mobile */
+  }
+  .featureList {
+    padding: 2em;
+  }
 }

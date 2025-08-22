@@ -1,21 +1,22 @@
 // Em: lib/constants.ts
 
-export const NAVIGATION_ITEMS = [
-  { href: '/', label: 'Home' },
-  { href: '/sobre-mim', label: 'Sobre mim' },
-  { href: '/contato', label: 'Contato' }
-] as const;
+// Transformamos a constante em uma função que recebe as traduções
+export const getNavigationItems = (t: { [key: string]: string }) => [
+  { href: '/', label: t.navHome },
+  { href: '/sobre-mim', label: t.navAbout },
+  { href: '/contato', label: t.navContact }
+];
 
 export const SOCIAL_LINKS = [
-  { 
-    href: 'https://www.linkedin.com/in/melkoserak/', 
-    icon: 'linkedin', 
-    label: 'LinkedIn' 
+  {
+    href: 'https://www.linkedin.com/in/melkoserak/',
+    icon: 'linkedin',
+    label: 'LinkedIn'
   },
-  { 
-    href: 'https://www.behance.net/melkoserak', 
-    icon: 'behance', 
-    label: 'Behance' 
+  {
+    href: 'https://www.behance.net/melkoserak',
+    icon: 'behance',
+    label: 'Behance'
   }
 ] as const;
 

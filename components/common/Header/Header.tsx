@@ -40,7 +40,7 @@ const Header = memo(({ onMenuToggle, isMenuOpen }: HeaderProps) => {
         </Link>
         
         <nav className={styles.nav}>
-          <LanguageSwitcher label={''} />
+          <LanguageSwitcher/>
           <ThemeToggleButton />
           <motion.button
             type="button"
