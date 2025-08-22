@@ -1,0 +1,30 @@
+{
+  "description": "Onboarding - UX / UI",
+  "capaAlt": "Capa do projeto Tryb",
+  "clientTitle": "Cliente",
+  "clientText": "Tryb",
+  "objectiveTitle": "Objetivo",
+  "objectiveText": "Otimizar a taxa de conversão de usuários que finalizam o cadastro inicial e engajam com o dashboard para ativar seus perfis.",
+  "solutionTitle": "Solução",
+  "solutionText": "Implementar um login social e criar um processo de introdução com modelos pré-definidos por categorias para facilitar o acesso ao dashboard, fornecendo designs e links prontos para uso.",
+  "roleTitle": "Função",
+  "roleText": "Product Design<br>- User Experience (UX) Designer<br>- User Interface (UI) Designer",
+  "content": {
+    "aboutClientTitle": "Sobre o Cliente",
+    "aboutClientP1": "O Tryb é uma plataforma para criadores de conteúdo. Com uma página única, oferece a oportunidade de distribuir redes sociais, vender conteúdos e capturar leads.",
+    "problemTitle": "Entendendo o Problema",
+    "problemP1": "Durante a análise inicial, identificamos, por meio de métricas, obstáculos significativos que estavam dificultando a transição dos usuários para aproveitar plenamente todas as funcionalidades da plataforma. Esses obstáculos impactaram diretamente na experiência, reduzindo a capacidade de explorar e utilizar efetivamente os recursos disponíveis.",
+    "step1Title": "Primeira Etapa: Simplificando o Acesso",
+    "step1P1": "Para aprimorar a entrada dos usuários, decidimos incorporar o social login (Google, Facebook, etc.), proporcionando uma maneira mais rápida e conveniente de se registrar. Isso simplificou o processo de entrada, eliminando barreiras e reduzindo a fricção no cadastro.",
+    "step1P2": "Foi necessário redesenhar por completo o fluxo de cadastro e introdução dos usuários, considerando como lidar com usuários que já haviam acessado utilizando diferentes contas para evitar conflitos.",
+    "step2Title": "Segunda Etapa: Onboarding Personalizado",
+    "step2P1": "Depois de estabelecermos o fluxo específico para cada usuário, reformulamos o processo de introdução. O novo onboarding foi adaptado com modelos pré-configurados e links, garantindo uma transição sem atrito e mais atrativa até o dashboard.",
+    "step3Title": "Terceira Etapa: Wireframing",
+    "step3P1": "Iniciamos a elaboração dos wireframes, onde delineamos o comportamento desejado de cada tela, visando proporcionar a melhor experiência possível ao usuário em cada interação.",
+    "finalStepTitle": "Etapa Final: O Protótipo",
+    "finalStepP1": "Você pode navegar pelo protótipo final no site oficial do Tryb: ",
+    "resultsTitle": "Resultados Finais",
+    "resultsP1": "Observamos um aumento significativo no número de pessoas que criaram contas usando o login social, com o Google se tornando o principal canal (40% de efetividade). A conversão na página de cadastro aumentou 8% em três meses.",
+    "resultsP2": "No processo de onboarding, notamos um aumento de 10% na conclusão completa. Surpreendentemente, 60% dos usuários optaram por usar um template pronto, resultando em um aumento de 20% na interação com o dashboard. Isso nos levou a iniciar testes de usabilidade em toda a plataforma, descobrindo que os usuários se sentiam desconfortáveis com um dashboard vazio."
+  }
+}

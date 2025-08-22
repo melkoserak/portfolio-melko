@@ -1,0 +1,91 @@
+/* Em: styles/pages/Experiencia.module.css */
+
+.pageContainer {
+  padding-top: 8em;
+  padding-bottom: 5em;
+  min-height: 80vh;
+}
+
+.mainTitle {
+  font-size: 3rem;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.5em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 4em;
+}
+
+.sidebar {
+  padding-right: 2em;
+}
+
+.section {
+  margin-bottom: 3em;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+  margin-bottom: 1em;
+}
+
+.educationItem {
+  margin-bottom: 1em;
+}
+
+.educationItem h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25em;
+}
+
+.educationItem p {
+  font-size: 0.9rem;
+  color: var(--color-fg-muted);
+  margin: 0;
+}
+
+.skillsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.jobItem {
+  margin-bottom: 2.5em;
+}
+
+.jobTitle {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.jobMeta {
+  color: var(--color-fg-muted);
+  margin-bottom: 1em;
+  font-size: 0.9rem;
+}
+
+.jobItem ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    padding-right: 0;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "description": "APP - UX / UI",
+  "capaAlt": "Capa do projeto Sonic App",
+  "clientTitle": "Cliente",
+  "clientText": "Sonic - empresa especializada em transporte e logística.",
+  "objectiveTitle": "Objetivo",
+  "objectiveText": "Otimização de processos para aumentar a eficiência e reduzir o tempo de execução das tarefas.",
+  "solutionTitle": "Solução",
+  "solutionText": "Aplicativo com design minimalista e navegação intuitiva, com foco em baixo consumo de memória e internet, para proporcionar uma experiência de uso agradável e eficiente.",
+  "roleTitle": "Função",
+  "roleText": "Product Design<br>- User Experience (UX) Designer<br>- User Interface (UI) Designer",
+  "content": {
+    "immersionTitle": "Imersão",
+    "immersionP1": "Para iniciar o projeto, foi necessário entender todas as etapas da jornada de entrega, observando o que ocorria e o que influenciava as possibilidades de erro. Analisamos qual era o problema e como os usuários viam e lidavam com essa questão.",
+    "opportunityTitle": "Oportunidade",
+    "opportunityP1": "A implementação de um aplicativo para padronizar a entrega de imagens de canhoto beneficiaria tanto os motoristas quanto a empresa, eliminando erros no processo de confirmação. O foco principal foi compreender as necessidades dos motoristas para criar uma solução intuitiva e eficiente.",
+    "understandingDriversTitle": "Entendendo os Motoristas",
+    "understandingDriversP1": "A maioria dos motoristas são homens, com idade média de 44,8 anos, casados e com dois filhos. Quanto ao nível de escolaridade, metade possui ensino médio e metade ensino fundamental.",
+    "understandingDriversP2": "O perfil do caminhoneiro evoluiu. O mercado se tornou mais competitivo e hoje o motorista precisa ser altamente capacitado e adaptável às inovações. Utilizando essas informações, construímos uma persona que representa os principais usuários do nosso aplicativo.",
+    "userJourneyTitle": "Jornada do Usuário",
+    "userJourneyP1": "Neste fluxograma, foi definido o caminho que o usuário deve seguir para subir uma imagem de acordo com os padrões solicitados. Incluímos um alerta para o caso de o usuário não conseguir subir a imagem dentro desses padrões.",
+    "userJourneyP2": "Decidimos criar três opções de acesso ao aplicativo: com login, por meio do número de entrega ou por um link. Quando o usuário faz login, funcionalidades adicionais são disponibilizadas.",
+    "adaptingToUserTitle": "Adequando-se ao Usuário",
+    "adaptingToUserP1": "Considerando que a maioria dos usuários deste projeto possui uma faixa etária mais avançada, foi imprescindível definir elementos de design que tornassem a navegação mais acessível e intuitiva.",
+    "wireframeTitle": "Wireframe",
+    "prototypeTitle": "Protótipo",
+    "prototypeP1": "Estabelecemos um fluxo de usuário que permita que as etapas necessárias sejam concluídas até atingir o objetivo desejado de maneira intuitiva.",
+    "prototypeLink": "Clique aqui para ver no Figma.",
+    "lessonsLearnedTitle": "Lições Aprendidas",
+    "lessonsLearnedP1": "Aprendi que compreender as necessidades e expectativas do usuário é fundamental para a criação de um design eficiente. A proximidade e o diálogo constante com o usuário durante todo o processo nos ajuda a entender melhor a proposta do projeto e as soluções ideais para alcançar os objetivos desejados."
+  }
+}

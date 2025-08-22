@@ -1,26 +1,28 @@
 // Em: pages/index.tsx
 
+import { useRouter } from 'next/router';
 import { GetStaticProps } from 'next';
 import Layout from '../components/common/Layout';
 import Hero from '../components/sections/Hero';
+import CtaSection from '../components/sections/CtaSection/CtaSection'; // ADICIONE ESTE IMPORT
 import HorizontalShowcase from '../components/sections/HorizontalShowcase';
 import { useMediaQuery } from '../hooks/useMediaQuery';
 import { Project } from '../lib/types';
-import { promises as fs } from 'fs';
-import path from 'path';
 import ProjectGrid from '../components/sections/ProjectGrid';
-import { getUxUiProjects } from '../data/projects'; // Importe a função
+import { getUxUiProjects } from '../data/projects';
+import { getTranslations } from '../lib/translations'; // ADICIONE ESTE IMPORT
 
 interface HomeProps {
   allProjects: Project[];
-  t: { [key: string]: string };
+  t: { [key: string]: any };
 }
 
 export default function Home({ allProjects, t }: HomeProps) {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const router = useRouter();
 
   return (
-    <Layout>
+    <Layout canonicalPath={router.asPath}>
       <div className="page-container">
         <Hero t={t} />
       </div>
@@ -32,16 +34,19 @@ export default function Home({ allProjects, t }: HomeProps) {
       ) : (
         <HorizontalShowcase projects={allProjects} />
       )}
+
+      {/* ADICIONE A NOVA SEÇÃO AQUI */}
+      <CtaSection t={t} />
+      
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
-  const jsonPath = path.join(process.cwd(), 'locales', `${locale || 'pt'}.json`);
-  const fileContent = await fs.readFile(jsonPath, 'utf8');
-  const t = JSON.parse(fileContent);
+  // AQUI ESTÁ A CORREÇÃO
+  // Agora usamos a nova função para carregar todas as traduções
+  const t = await getTranslations(locale);
 
-  // Chame a função com as traduções
   const allProjects = getUxUiProjects(t);
 
   return {

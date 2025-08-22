@@ -1,21 +1,25 @@
 // Em: pages/sobre-mim.tsx
 
+import { useRouter } from 'next/router';
 import Layout from '../components/common/Layout';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Link from 'next/link'; // ESTA É A LINHA QUE FALTAVA
 import styles from '../styles/pages/SobreMim.module.css';
 import { GetStaticProps } from 'next';
 import { promises as fs } from 'fs';
 import path from 'path';
-import pt from '../locales/pt.json'; // Importa as traduções padrão
+import pt from '../locales/pt.json';
 
 interface SobreMimProps {
-  t: { [key: string]: string };
+  t: { [key: string]: any }; // Mudamos de 'string' para 'any'
 }
 
-export default function SobreMim({ t = pt }: SobreMimProps) { // Define 'pt' como valor padrão
+export default function SobreMim({ t = pt }: SobreMimProps) {
+  const router = useRouter(); // Adicionado aqui
+
   return (
-    <Layout title={t.navAbout}>
+    <Layout title={t.navAbout} canonicalPath={router.asPath}>
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
@@ -29,14 +33,9 @@ export default function SobreMim({ t = pt }: SobreMimProps) { // Define 'pt' com
             <p>{t.aboutP1}</p>
             <p>{t.aboutP2}</p>
             <p>{t.aboutP3}</p>
-            <a
-              href="/images/melko-curriculo.pdf"
-              className="button"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <Link href="/experiencia" className="button">
               {t.aboutResume}
-            </a>
+            </Link>
           </div>
 
           <div className={styles.imageContainer}>

@@ -2,16 +2,17 @@
 
 import { memo } from 'react';
 import { useRouter } from 'next/router';
-import { motion, AnimatePresence } from 'framer-motion';
-import { getNavigationItems } from '../../../lib/constants'; // Importa a nova função
+import { motion, AnimatePresence } from 'framer-motion'; // ESTA É A LINHA CORRIGIDA
+import { getNavigationItems } from '../../../lib/constants';
 import { MenuProps } from '../../../lib/types';
 import styles from './Menu.module.css';
-import pt from '../../../locales/pt.json';
-import en from '../../../locales/en.json';
+import pt from '../../../locales/pt/common.json';
+import en from '../../../locales/en/common.json';
 
 const Menu = memo(({ isOpen, onClose }: MenuProps) => {
   const router = useRouter();
   const { locale } = router;
+  
   const t = locale === 'en' ? en : pt;
 
   const navigationItems = getNavigationItems(t);

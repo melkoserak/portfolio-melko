@@ -12,13 +12,16 @@ const content = {
   en: {
     switchLanguage: 'Switch language to'
   }
-}
+};
 
 const LanguageSwitcher = memo(() => {
   const router = useRouter();
   const { locales, locale: activeLocale, pathname, query } = router;
+
+  // Usa o idioma ativo para definir o texto do tooltip (dica de ferramenta)
   const t = activeLocale === 'en' ? content.en : content.pt;
 
+  // Filtra a lista de idiomas para mostrar apenas aqueles que NÃO são o idioma atual
   const otherLocales = locales?.filter((locale) => locale !== activeLocale);
 
   return (
@@ -30,9 +33,9 @@ const LanguageSwitcher = memo(() => {
             key={locale}
             href={{ pathname, query }}
             locale={locale}
-            className={`button ${styles.tooltipWrapper}`} // Adiciona a classe para o tooltip
+            className={`button ${styles.tooltipWrapper}`}
             aria-label={title}
-            data-tooltip={title} // Adiciona o data-attribute
+            data-tooltip={title}
           >
             {locale.toUpperCase()}
           </Link>

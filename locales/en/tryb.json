@@ -1,0 +1,30 @@
+{
+  "description": "Onboarding - UX / UI",
+  "capaAlt": "Cover for the Tryb project",
+  "clientTitle": "Client",
+  "clientText": "Tryb",
+  "objectiveTitle": "Objective",
+  "objectiveText": "Optimize the conversion rate of users who complete the initial registration and engage with the dashboard to activate their profiles.",
+  "solutionTitle": "Solution",
+  "solutionText": "Implement social login and create an onboarding process with pre-defined templates by category to facilitate access to the dashboard, providing ready-to-use designs and links.",
+  "roleTitle": "Role",
+  "roleText": "Product Design<br>- User Experience (UX) Designer<br>- User Interface (UI) Designer",
+  "content": {
+    "aboutClientTitle": "About the Client",
+    "aboutClientP1": "Tryb is a platform for content creators. With a single page, it offers the opportunity to distribute social media links, sell content, and capture leads.",
+    "problemTitle": "Understanding the Problem",
+    "problemP1": "During the initial analysis, we identified through metrics significant obstacles that were hindering users from fully transitioning to enjoy all the platform's features smoothly. These obstacles directly impacted the user experience, reducing their ability to explore and effectively use the available resources.",
+    "step1Title": "First Step: Simplifying Access",
+    "step1P1": "To improve user entry, we decided to incorporate social login (Google, Facebook, etc.), providing a faster and more convenient way to register and access the platform. This simplified the entry process, removing barriers and reducing friction during registration.",
+    "step1P2": "It was necessary to completely redesign the registration and user introduction flow, considering how to handle users who had previously logged in with different accounts to avoid conflicts.",
+    "step2Title": "Second Step: Personalized Onboarding",
+    "step2P1": "After establishing the specific flow for each user, we redesigned the introduction process. The new onboarding was adapted with pre-configured templates and links, ensuring a frictionless and more engaging transition to the dashboard.",
+    "step3Title": "Third Step: Wireframing",
+    "step3P1": "We began creating the wireframes, where we outlined the desired behavior of each screen, aiming to provide the best possible user experience at every interaction.",
+    "finalStepTitle": "Final Step: The Prototype",
+    "finalStepP1": "You can navigate the final prototype on the official Tryb website: ",
+    "resultsTitle": "Final Results",
+    "resultsP1": "We observed a significant increase in the number of people creating accounts using social login, with Google becoming the main channel (40% effectiveness). The conversion on the registration page increased by 8% over three months.",
+    "resultsP2": "In the onboarding process, we noted a 10% increase in full completion. Surprisingly, 60% of users chose to use a ready-made template to start, resulting in a 20% increase in dashboard interaction. This led us to initiate usability tests across the entire platform, discovering that users felt uncomfortable with an empty dashboard."
+  }
+}

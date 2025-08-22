@@ -1,5 +1,6 @@
 // Em: pages/_app.tsx
 
+
 import type { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from '../context/ThemeContext';
@@ -11,7 +12,7 @@ const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '700', '900'],
   display: 'swap',
-  // A opção 'variable' não é mais necessária aqui
+  variable: '--font-family-body', // Adicionar variável de fonte
 });
 
 export default function App({ Component, pageProps, router }: AppProps) {

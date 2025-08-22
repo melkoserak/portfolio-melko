@@ -33,14 +33,14 @@ const Footer = memo(() => {
               return (
                 <li key={label}>
                   <a
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.iconLink}
-                    aria-label={label}
-                  >
-                    {IconComponent && <IconComponent />}
-                  </a>
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.iconLink}
+                  aria-label={label} // Adicionado
+                >
+                  {IconComponent && <IconComponent />}
+                </a>
                 </li>
               );
             })}

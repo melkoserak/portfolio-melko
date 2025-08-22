@@ -1,0 +1,32 @@
+{
+  "description": "APP - UX / UI",
+  "capaAlt": "Cover for the Sonic App project",
+  "clientTitle": "Client",
+  "clientText": "Sonic - a company specializing in transport and logistics.",
+  "objectiveTitle": "Objective",
+  "objectiveText": "Process optimization to increase efficiency and reduce task execution time.",
+  "solutionTitle": "Solution",
+  "solutionText": "An application with a minimalist design and intuitive navigation, focused on low memory and internet consumption, to provide a pleasant and efficient user experience.",
+  "roleTitle": "Role",
+  "roleText": "Product Design<br>- User Experience (UX) Designer<br>- User Interface (UI) Designer",
+  "content": {
+    "immersionTitle": "Immersion",
+    "immersionP1": "To start the project, it was necessary to understand all stages of the delivery journey, observing what occurred and what influenced the possibilities of error. We analyzed the problem and how users perceived and dealt with this issue.",
+    "opportunityTitle": "Opportunity",
+    "opportunityP1": "Implementing an application to standardize the submission of proof-of-delivery images would benefit both drivers and the company by eliminating errors in the confirmation process. The main focus was on understanding the drivers' needs to create an intuitive and efficient solution.",
+    "understandingDriversTitle": "Understanding the Drivers",
+    "understandingDriversP1": "Most drivers are men, with an average age of 44.8 years, married, and with two children. Regarding education level, half have a high school diploma and half have an elementary school education.",
+    "understandingDriversP2": "The profile of truck drivers has evolved. The market has become more competitive, and today's drivers need to be highly skilled and adaptable to innovations. Using this information, we built a persona that represents the main users of our application.",
+    "userJourneyTitle": "User Journey",
+    "userJourneyP1": "In this flowchart, we defined the path the user must follow to upload an image according to the required standards. We included an alert in case the user fails to upload the image within these standards.",
+    "userJourneyP2": "We decided to create three access options for the app: with a login, via the delivery number, or through a link. When the user logs in, additional features become available.",
+    "adaptingToUserTitle": "Adapting to the User",
+    "adaptingToUserP1": "Considering that the majority of users for this project are in an older age group, it was essential to define design elements that would make navigation more accessible and intuitive.",
+    "wireframeTitle": "Wireframe",
+    "prototypeTitle": "Prototype",
+    "prototypeP1": "We established a user flow that allows the necessary steps to be completed intuitively to achieve the desired objective.",
+    "prototypeLink": "Click here to view in Figma.",
+    "lessonsLearnedTitle": "Lessons Learned",
+    "lessonsLearnedP1": "I learned that understanding the user's needs and expectations is fundamental to creating an effective design. Constant dialogue with the user throughout the development process helps us better understand the project's purpose and the ideal solutions to achieve the desired goals."
+  }
+}

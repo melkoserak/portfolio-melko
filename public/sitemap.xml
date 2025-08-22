@@ -21,3 +21,14 @@
     <priority>0.9</priority>
   </url>
   </urlset>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Melko Serak Neto",
+  "url": "https://www.melkoserak.com/sobre-mim",
+  "jobTitle": "Product Designer",
+  "email": "melko.serak@gmail.com"
+}
+</script>

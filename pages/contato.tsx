@@ -1,5 +1,6 @@
 // Em: pages/contato.tsx
 
+import { useRouter } from 'next/router';
 import Layout from '../components/common/Layout';
 import { motion } from 'framer-motion';
 import { CONTACT_EMAIL, SOCIAL_LINKS } from '../lib/constants';
@@ -7,15 +8,19 @@ import styles from '../styles/pages/Contato.module.css';
 import { GetStaticProps } from 'next';
 import { promises as fs } from 'fs';
 import path from 'path';
-import pt from '../locales/pt.json'; // Importa as traduções padrão
+import pt from '../locales/pt.json';
 
+// CORREÇÃO AQUI
 interface ContatoProps {
-  t: { [key: string]: string };
+  t: { [key: string]: any }; // Mudamos de 'string' para 'any'
 }
 
-export default function Contato({ t = pt }: ContatoProps) { // Define 'pt' como valor padrão
+
+export default function Contato({ t = pt }: ContatoProps) {
+  const router = useRouter(); // Adicionado aqui
+
   return (
-    <Layout title={t.navContact}>
+    <Layout title={t.navContact} canonicalPath={router.asPath}>
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
