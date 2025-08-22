@@ -1,96 +1,95 @@
 /* Em: components/sections/CtaSection/CtaSection.module.css */
 
 .wrapper {
-  padding: 8em 0;
-  position: relative; /* Essencial para o posicionamento do fundo */
-  overflow: hidden; /* Garante que a animação não vaze */
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+padding: 8em 0;
+position: relative; /* Essencial para o posicionamento absoluto do fundo /
+overflow: hidden; / Garante que a animação não vaze */
+border-top: 1px solid var(--color-border);
+border-bottom: 1px solid var(--color-border);
 }
 
 .background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0; /* Ficará atrás do conteúdo */
-  opacity: 0.5; /* Deixa a animação mais sutil */
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: 0; /* Ficará atrás do conteúdo */
 }
 
 /* Garante que o conteúdo fique na frente da animação */
 .ctaSection {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: var(--size-inner);
-  margin: 0 auto;
-  padding: 0 var(--size-gutter);
-  text-align: center;
+position: relative;
+z-index: 1;
+width: 100%;
+max-width: var(--size-inner);
+margin: 0 auto;
+padding: 0 var(--size-gutter);
+text-align: center;
 }
 
 .mainTitle {
-  font-size: 3rem;
-  font-weight: var(--font-weight-bold);
-  margin-bottom: 3rem;
-  max-width: 20ch;
-  margin-left: auto;
-  margin-right: auto;
+font-size: 3rem;
+font-weight: var(--font-weight-bold);
+margin-bottom: 3rem;
+max-width: 20ch;
+margin-left: auto;
+margin-right: auto;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-  margin-bottom: 3rem;
-  text-align: left;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 3rem;
+margin-bottom: 3rem;
+text-align: left;
 }
 
 .gridItem {
-  border-top: 1px solid var(--color-border);
-  padding-top: 1.5rem;
+border-top: 1px solid var(--color-border);
+padding-top: 1.5rem;
 }
 
 .icon {
-  font-size: 2rem;
-  color: var(--color-accent1);
-  margin-bottom: 1rem;
+font-size: 2rem;
+color: var(--color-accent1);
+margin-bottom: 1rem;
 }
 
 .itemTitle {
-  font-size: 1.25rem;
-  font-weight: var(--font-weight-bold);
-  margin-bottom: 0.75rem;
+font-size: 1.25rem;
+font-weight: var(--font-weight-bold);
+margin-bottom: 0.75rem;
 }
 
 .gridItem p {
-  color: var(--color-fg-muted);
-  font-size: 0.95rem;
-  line-height: 1.8;
-  max-width: none;
+color: var(--color-fg-muted);
+font-size: 0.95rem;
+line-height: 1.8;
+max-width: none;
 }
 
 .ctaButton {
-  font-size: 1rem;
-  padding: 1em 2.5em;
-  border-width: 2px;
-  font-weight: var(--font-weight-bold);
+font-size: 1rem;
+padding: 1em 2.5em;
+border-width: 2px;
+font-weight: var(--font-weight-bold);
 }
 
 @media (max-width: 768px) {
-  .wrapper {
-    padding: 4em 0;
-  }
-  .mainTitle {
-    font-size: 2rem;
-  }
-  .grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .gridItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+.wrapper {
+padding: 4em 0;
+}
+.mainTitle {
+font-size: 2rem;
+}
+.grid {
+grid-template-columns: 1fr;
+text-align: center;
+}
+.gridItem {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
 }

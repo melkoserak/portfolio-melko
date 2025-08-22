@@ -33,11 +33,11 @@ const CtaSection = memo(({ t }: CtaSectionProps) => {
       </div>
       
       <motion.section
-        className={styles.ctaSection}
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+      className={styles.ctaSection}
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }} // Garante que a animação rode quando 20% da seção estiver visível
       >
         <motion.h2 variants={itemVariants} className={styles.mainTitle}>
           {t.ctaTitle}
