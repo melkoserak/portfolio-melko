@@ -1,26 +1,16 @@
 // Em: pages/contato.tsx
 
-import { useRouter } from 'next/router';
 import Layout from '../components/common/Layout';
 import { motion } from 'framer-motion';
 import { CONTACT_EMAIL, SOCIAL_LINKS } from '../lib/constants';
 import styles from '../styles/pages/Contato.module.css';
-import { GetStaticProps } from 'next';
-import { promises as fs } from 'fs';
-import path from 'path';
-import pt from '../locales/pt.json';
+import { useLanguage } from '../context/LanguageContext';
 
-// CORREÇÃO AQUI
-interface ContatoProps {
-  t: { [key: string]: any }; // Mudamos de 'string' para 'any'
-}
-
-
-export default function Contato({ t = pt }: ContatoProps) {
-  const router = useRouter(); // Adicionado aqui
+export default function Contato() {
+  const { t } = useLanguage();
 
   return (
-    <Layout title={t.navContact} canonicalPath={router.asPath}>
+    <Layout title={t.navContact}>
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
@@ -30,7 +20,7 @@ export default function Contato({ t = pt }: ContatoProps) {
       >
         <div className={styles.contentWrapper}>
           <h1>{t.contactTitle}</h1>
-          <p>{t.contactP1}</p>
+          <p>{t.contactP1}</p> {/* <-- LINHA ADICIONADA AQUI */}
 
           <a href={`mailto:${CONTACT_EMAIL}`} className={styles.emailLink}>
             {CONTACT_EMAIL}
@@ -56,15 +46,3 @@ export default function Contato({ t = pt }: ContatoProps) {
     </Layout>
   );
 }
-
-export const getStaticProps: GetStaticProps<ContatoProps> = async ({ locale }) => {
-  const jsonPath = path.join(process.cwd(), 'locales', `${locale || 'pt'}.json`);
-  const fileContent = await fs.readFile(jsonPath, 'utf8');
-  const t = JSON.parse(fileContent);
-
-  return {
-    props: {
-      t,
-    },
-  };
-};

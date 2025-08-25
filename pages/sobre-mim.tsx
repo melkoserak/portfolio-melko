@@ -1,25 +1,17 @@
 // Em: pages/sobre-mim.tsx
 
-import { useRouter } from 'next/router';
 import Layout from '../components/common/Layout';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import Link from 'next/link'; // ESTA É A LINHA QUE FALTAVA
+import Link from 'next/link';
 import styles from '../styles/pages/SobreMim.module.css';
-import { GetStaticProps } from 'next';
-import { promises as fs } from 'fs';
-import path from 'path';
-import pt from '../locales/pt.json';
+import { useLanguage } from '../context/LanguageContext'; // 1. Importe o hook
 
-interface SobreMimProps {
-  t: { [key: string]: any }; // Mudamos de 'string' para 'any'
-}
-
-export default function SobreMim({ t = pt }: SobreMimProps) {
-  const router = useRouter(); // Adicionado aqui
+export default function SobreMim() {
+  const { t } = useLanguage(); // 2. Use o hook para obter os textos
 
   return (
-    <Layout title={t.navAbout} canonicalPath={router.asPath}>
+    <Layout title={t.navAbout}>
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
@@ -56,14 +48,4 @@ export default function SobreMim({ t = pt }: SobreMimProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<SobreMimProps> = async ({ locale }) => {
-  const jsonPath = path.join(process.cwd(), 'locales', `${locale || 'pt'}.json`);
-  const fileContent = await fs.readFile(jsonPath, 'utf8');
-  const t = JSON.parse(fileContent);
-
-  return {
-    props: {
-      t,
-    },
-  };
-};
+// 3. getStaticProps foi removido!

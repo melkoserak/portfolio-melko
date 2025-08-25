@@ -1,0 +1,17 @@
+/* Em: components/common/aurora/Aurora.module.css */
+.auroraContainer {
+    position: absolute;
+    top: 5%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(60px);
+        opacity: 0.5;
+
+    display: flex; /* Adicionamos Flexbox */
+    justify-content: center; /* Centraliza horizontalmente (se necessário) */
+    align-items: center; /* Centraliza verticalmente */
+    overflow: hidden; /* Importante para que a animação não vaze se for maior que o container */
+}

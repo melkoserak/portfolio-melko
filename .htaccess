@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+  # Inicia o motor de reescrita
+  RewriteEngine On
+
+  # A MUDANÇA MAIS IMPORTANTE: Impede o servidor de tratar a URL como um diretório
+  DirectorySlash Off
+
+  # Impede a listagem de diretórios
+  Options -Indexes
+
+  # Regra 1: Se a URL for para um arquivo que existe (imagem, css), sirva-o diretamente.
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Regra 2: Se a URL corresponder a um arquivo .html, sirva esse arquivo.
+  # Isso fará com que "/projetos" sirva o conteúdo de "projetos.html".
+  RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_URI}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+
+  # Regra 3 (Fallback): Para todas as outras URLs, sirva o index.html principal.
+  RewriteRule . /index.html [L]
+</IfModule>

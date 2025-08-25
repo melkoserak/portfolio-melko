@@ -6,6 +6,8 @@ import { AnimatePresence } from 'framer-motion';
 import { ThemeProvider } from '../context/ThemeContext';
 import '../styles/globals.css';
 import { Inter } from 'next/font/google';
+import { LanguageProvider } from '../context/LanguageContext'; // <-- IMPORTE AQUI
+
 
 // Configure a fonte "Inter"
 const inter = Inter({
@@ -18,12 +20,13 @@ const inter = Inter({
 export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <ThemeProvider>
-      {/* Aplicamos a classe da fonte diretamente aqui */}
-      <main className={inter.className}>
-        <AnimatePresence mode="wait" initial={false}>
-          <Component {...pageProps} key={router.asPath} />
-        </AnimatePresence>
-      </main>
+      <LanguageProvider> {/* <-- ADICIONE O PROVIDER AQUI */}
+        <main className={inter.className}>
+          <AnimatePresence mode="wait" initial={false}>
+            <Component {...pageProps} key={router.asPath} />
+          </AnimatePresence>
+        </main>
+      </LanguageProvider> {/* <-- E FECHE-O AQUI */}
     </ThemeProvider>
   );
 }

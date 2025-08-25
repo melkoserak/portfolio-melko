@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styles from './CtaSection.module.css';
-import BackgroundAnimation from '../../common/BackgroundAnimation/BackgroundAnimation'; // Importe a animação
+import Aurora from '../../common/aurora'; // Importe a nova animação
 import { FiZap, FiCpu, FiBarChart2 } from 'react-icons/fi'; // Ícones novos e mais finos
 
 interface CtaSectionProps {
@@ -27,9 +27,14 @@ const itemVariants = {
 const CtaSection = memo(({ t }: CtaSectionProps) => {
   return (
     <div className={styles.wrapper}>
-      {/* Componente de animação adicionado aqui */}
+      {/* Componente de animação atualizado aqui */}
       <div className={styles.background}>
-        <BackgroundAnimation />
+        <Aurora
+          colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+          blend={0.5}
+          amplitude={1.0}
+          speed={0.5}
+        />
       </div>
       
       <motion.section

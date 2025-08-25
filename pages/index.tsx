@@ -1,58 +1,38 @@
 // Em: pages/index.tsx
 
-import { useRouter } from 'next/router';
-import { GetStaticProps } from 'next';
 import Layout from '../components/common/Layout';
 import Hero from '../components/sections/Hero';
-import CtaSection from '../components/sections/CtaSection/CtaSection'; // ADICIONE ESTE IMPORT
+import CtaSection from '../components/sections/CtaSection/CtaSection';
 import HorizontalShowcase from '../components/sections/HorizontalShowcase';
 import { useMediaQuery } from '../hooks/useMediaQuery';
-import { Project } from '../lib/types';
+import { useLanguage } from '../context/LanguageContext'; // Importe o hook de idioma
 import ProjectGrid from '../components/sections/ProjectGrid';
 import { getUxUiProjects } from '../data/projects';
-import { getTranslations } from '../lib/translations'; // ADICIONE ESTE IMPORT
 
-interface HomeProps {
-  allProjects: Project[];
-  t: { [key: string]: any };
-}
-
-export default function Home({ allProjects, t }: HomeProps) {
+export default function Home() {
   const isMobile = useMediaQuery('(max-width: 768px)');
-  const router = useRouter();
+  const { t } = useLanguage(); // Use o hook para pegar os textos
+
+  // Os projetos agora são gerados com base nos textos do contexto
+  const allProjects = getUxUiProjects(t);
 
   return (
-    <Layout canonicalPath={router.asPath}>
+    <Layout>
       <div className="page-container">
         <Hero t={t} />
       </div>
 
       {isMobile ? (
         <div className="page-container">
-          <ProjectGrid title="Projetos" projects={allProjects} priority={true} />
+          <ProjectGrid title={t.navProjects} projects={allProjects} priority={true} />
         </div>
       ) : (
         <HorizontalShowcase projects={allProjects} />
       )}
 
-      {/* ADICIONE A NOVA SEÇÃO AQUI */}
       <CtaSection t={t} />
-      
     </Layout>
   );
 }
 
-export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
-  // AQUI ESTÁ A CORREÇÃO
-  // Agora usamos a nova função para carregar todas as traduções
-  const t = await getTranslations(locale);
-
-  const allProjects = getUxUiProjects(t);
-
-  return {
-    props: {
-      allProjects,
-      t,
-    },
-  };
-};
+// Não precisamos mais de getStaticProps aqui! Pode remover.

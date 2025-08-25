@@ -4,8 +4,6 @@
 padding: 8em 0;
 position: relative; /* Essencial para o posicionamento absoluto do fundo /
 overflow: hidden; / Garante que a animação não vaze */
-border-top: 1px solid var(--color-border);
-border-bottom: 1px solid var(--color-border);
 }
 
 .background {
@@ -30,9 +28,8 @@ text-align: center;
 
 .mainTitle {
 font-size: 3rem;
-font-weight: var(--font-weight-bold);
+font-weight: var(--font-weight-normal);
 margin-bottom: 3rem;
-max-width: 20ch;
 margin-left: auto;
 margin-right: auto;
 }
@@ -46,7 +43,6 @@ text-align: left;
 }
 
 .gridItem {
-border-top: 1px solid var(--color-border);
 padding-top: 1.5rem;
 }
 
@@ -58,7 +54,7 @@ margin-bottom: 1rem;
 
 .itemTitle {
 font-size: 1.25rem;
-font-weight: var(--font-weight-bold);
+font-weight: var(--font-weight-normal);
 margin-bottom: 0.75rem;
 }
 

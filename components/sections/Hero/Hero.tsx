@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
 
 interface HeroProps {
-  t: { [key: string]: string };
+  t: { [key: string]: any }; // <-- CORREÇÃO APLICADA AQUI
 }
 
 const Hero = memo(({ t }: HeroProps) => {

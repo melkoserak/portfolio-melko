@@ -1,12 +1,9 @@
 // Em: pages/experiencia.tsx
 
-import { useRouter } from 'next/router';
 import Layout from '../components/common/Layout';
 import { motion } from 'framer-motion';
 import styles from '../styles/pages/Experiencia.module.css';
-import { GetStaticProps } from 'next';
-import { promises as fs } from 'fs';
-import path from 'path';
+import { useLanguage } from '../context/LanguageContext'; // 1. Importe o hook
 
 // --- CONTEÚDO EM PORTUGUÊS ---
 const content_pt = {
@@ -36,7 +33,7 @@ const content_pt = {
         "Colaboração Multidisciplinar: Trabalho com equipes de marketing, produto e TI para implementação de novas funcionalidades."
       ]
     },
-    {
+     {
         title: "Designer",
         meta: "Grupo Armação | Set/2021 - Mar/2023",
         points: [
@@ -200,16 +197,12 @@ const content_en = {
   ]
 };
 
-interface ExperienciaProps {
-  t: { [key: string]: string };
-}
-
-export default function Experiencia({ t }: ExperienciaProps) {
-  const router = useRouter();
-  const content = router.locale === 'en' ? content_en : content_pt;
+export default function Experiencia() {
+  const { locale, t } = useLanguage(); // 2. Use o hook
+  const content = locale === 'en' ? content_en : content_pt;
 
   return (
-    <Layout title={t.navExperience} canonicalPath={router.asPath}>
+    <Layout title={t.navExperience}>
       <motion.div
         className={styles.pageContainer}
         initial={{ opacity: 0, y: 20 }}
@@ -266,16 +259,4 @@ export default function Experiencia({ t }: ExperienciaProps) {
   );
 }
 
-export const getStaticProps: GetStaticProps<ExperienciaProps> = async ({ locale }) => {
-  const defaultLocale = 'pt';
-  const finalLocale = locale || defaultLocale;
-  const jsonPath = path.join(process.cwd(), 'locales', `${finalLocale}.json`);
-  const fileContent = await fs.readFile(jsonPath, 'utf8');
-  const t = JSON.parse(fileContent);
-
-  return {
-    props: {
-      t,
-    },
-  };
-};
+// 3. getStaticProps foi removido!
